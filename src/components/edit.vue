@@ -1,43 +1,40 @@
 <template>
-  <div class="postbook">
+  <div class="edit">
     <h1>{{ msg }}</h1>
     <div>
-      <h2 style = "color:black">Here you can add a new Book to the collection:&nbsp;</h2>
+      <h2 style = "color:black">Here you can edit a Book in the database:&nbsp;</h2>
     </div>
         <form @submit.prevent="handleSubmit(onSubmit)"> 
         <div>
+            <br>
             <div class="row justify-content-center">
-                <p style ="color:blue">Register a Book:</p>
+                <label>ID:&nbsp;&nbsp;</label>
+                    <input v-model="id" placeholder="Book ID required">
             </div>
             <br>
             <div class="row justify-content-center">
-                <label style="color:blue">ISBN:&nbsp;&nbsp;</label>
+                <label>ISBN:&nbsp;&nbsp;</label>
                     <input v-model="isbn" placeholder="ISBN">
             </div>
             <br>
             <div class="row justify-content-center">
-                <label style="color:blue">Title:&nbsp;&nbsp;</label>
+                <label>Title:&nbsp;&nbsp;</label>
                     <input v-model="title" placeholder="Title">
             </div>
             <br>
             <div class="row justify-content-center">
-                <label style="color:blue">Author:&nbsp;&nbsp;</label>
+                <label>Author:&nbsp;&nbsp;</label>
                     <input v-model="author" placeholder="Author">
             </div>
             <br>
             <div class="row justify-content-center">
-                <label style="color:blue">Theme:&nbsp;&nbsp;</label>
+                <label>Theme:&nbsp;&nbsp;</label>
                     <select v-model="theme">
                         <option disabled value="">Please select type</option>
                         <option>crime</option>
                         <option>fiction</option>
                         <option>biography</option>
                     </select> 
-            </div>
-            <br>
-            <div class="row justify-content-center">
-                <label style="color:blue">Published At:&nbsp;&nbsp;</label>
-                    <input v-model="publishedAt" placeholder="Published At">
             </div>
             <br>
             <div class="row justify-content-center">
@@ -48,11 +45,12 @@
         </form>
     <div>
         <p>
-          This book has been added: {{ this.isbn }},
+          This book has been edited: 
+           {{this.id}},
+           {{this.isbn }},
            {{this.title}}, 
            {{this.author}}, 
            {{this.theme}}, 
-           {{this.publishedAt}}
         </p>
     </div>
     <a href="http://localhost:8080/#/">Return to start page</a>
@@ -62,15 +60,15 @@
 <script>
 
 export default {
-  name: 'postbook',
+  name: 'edit',
   data () {
     return {
-      msg: 'Post Book Component',
+      msg: 'Edit Book Component',
+      id: '',
       isbn: '',
       title: '',
       author: '',
-      theme: '',
-      publishedAt: ''
+      theme: ''
     }
   },
   mounted () {
@@ -80,6 +78,7 @@ export default {
     onSubmit () {
       alert('Form has been submitted!');
       // this.sendJson(); //add this for fetching from public api
+      this.id = '',
       this.isbn = ''; 
       this.title = '';
       this.author = '';
@@ -88,11 +87,11 @@ export default {
     }
     /* sendJson() { //add for fetching from public api
       const requestOptions = {
-        method: 'POST',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.getInputBody())
       };
-      fetch('http://localhost:8091/book/post', requestOptions)
+      fetch('http://localhost:8091/book/post/'+ this.id, requestOptions)
         .then(response => {
           if (response.status === 200) {
           return response.json();
@@ -108,11 +107,11 @@ export default {
     },
     getInputBody(){
       return {
+        id: this.id,
         isbn: this.isbn, 
         title: this.title, 
         author: this.author,
         themer: this.theme,
-        publishedAt: this.publishedAt
       };
     } */
   } 

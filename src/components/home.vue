@@ -14,6 +14,9 @@
     <a href="http://localhost:8080/#/postbook">Go here to add a book to the book shelf</a>
     <br>
     <br>
+    <a href="http://localhost:8080/#/edit">Go here to edit a book by book id</a>
+    <br>
+    <br>
     <a href="http://localhost:8080/#/del">Go here to delete a book by book id</a>
   </div>
 </template>
