@@ -40,7 +40,7 @@ export default {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
             };
-            fetch('https://penne.test/api/persons/' + this.theId, requestOptions)
+            fetch('http://localhost:8091/book/delete/' + this.theId, requestOptions)
                 .then(response => {
                     if (response.status === 200) {
                     return response.json();

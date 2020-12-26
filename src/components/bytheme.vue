@@ -101,7 +101,7 @@
         }
         /* getExample: function(){
             var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'http://localhost:8091/.'+this.theme // books/theme?
+            targetUrl = 'http://localhost:8091/book/'+ this.theme
             fetch(proxyUrl + targetUrl)
             .then(blob => blob.json())
             .then(data => {
