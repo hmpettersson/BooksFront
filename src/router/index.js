@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
 import home from '@/components/home'
 import person from '@/components/person'
 import shelf from '@/components/shelf'
 import bytheme from '@/components/bytheme'
 import del from '@/components/del'
+import postbook from '@/components/postbook'
 
 Vue.use(Router)
 
@@ -35,6 +35,11 @@ export default new Router({
       path: '/del',
       name: 'del',
       component: del  
+    },
+    {
+      path: '/postbook',
+      name: 'postbook',
+      component: postbook  
     }
   ]
 })
