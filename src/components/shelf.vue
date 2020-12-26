@@ -49,7 +49,7 @@
         }
         /* getExample: function(){
             var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'https://tools.learningcontainer.com/sample-json.json'
+            targetUrl = 'http://localhost:8091/book'
             fetch(proxyUrl + targetUrl)
             .then(blob => blob.json())
             .then(data => {
