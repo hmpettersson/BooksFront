@@ -5,7 +5,7 @@ import home from '@/components/home'
 import person from '@/components/person'
 import shelf from '@/components/shelf'
 import bytheme from '@/components/bytheme'
-// import ShowBooks from '@/components/ShowBooks'
+import del from '@/components/del'
 
 Vue.use(Router)
 
@@ -30,6 +30,11 @@ export default new Router({
       path: '/bytheme',
       name: 'bytheme',
       component: bytheme  
+    },
+    {
+      path: '/del',
+      name: 'del',
+      component: del  
     }
   ]
 })
