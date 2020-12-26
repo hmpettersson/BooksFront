@@ -6,6 +6,7 @@ import shelf from '@/components/shelf'
 import bytheme from '@/components/bytheme'
 import del from '@/components/del'
 import postbook from '@/components/postbook'
+import edit from '@/components/edit'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/postbook',
       name: 'postbook',
       component: postbook  
+    },
+    {
+      path: '/edit',
+      name: 'edit',
+      component: edit  
     }
   ]
 })
