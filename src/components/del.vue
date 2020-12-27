@@ -2,12 +2,12 @@
 <div class="del">
     <h1>{{msg}}</h1>
     <div>
-        <h2 style = "color:red">Enter the book id for the book you want to delete:&nbsp;</h2>
+        <h2>Enter the book id for the book you want to delete:&nbsp;</h2>
     </div>
     <br>
     <div style = "color:red">
         <input v-model = "theId" placeholder="Book ID">
-        <button style = "background-color:red" @click = "onSubmit">Delete Book</button>
+        <button style = "color:red" @click = "onSubmit">Delete Book</button>
         <br> 
     </div>
     <div>
@@ -58,3 +58,19 @@ export default {
 }
 
 </script>
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #0c0c0c;
+}
+</style>
