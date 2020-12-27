@@ -36,12 +36,7 @@
             </div>
             <br>
             <div class="row justify-content-center">
-                <label style="color:blue">Published At:&nbsp;&nbsp;</label>
-                    <input v-model="publishedAt" placeholder="Published At">
-            </div>
-            <br>
-            <div class="row justify-content-center">
-              <button type="submit" style = "background-color:pink" @click = "onSubmit">Submit</button>
+              <button type="submit" style = "background-color:white" @click = "onSubmit">Submit</button>
             </div>
             <br>
         </div>
@@ -51,8 +46,7 @@
           This book has been added: {{ this.isbn }},
            {{this.title}}, 
            {{this.author}}, 
-           {{this.theme}}, 
-           {{this.publishedAt}}
+           {{this.theme}}
         </p>
     </div>
     <a href="http://localhost:8080/#/">Return to start page</a>
@@ -69,8 +63,7 @@ export default {
       isbn: '',
       title: '',
       author: '',
-      theme: '',
-      publishedAt: ''
+      theme: ''
     }
   },
   mounted () {
@@ -84,7 +77,6 @@ export default {
       this.title = '';
       this.author = '';
       this.theme = '';
-      this.publishedAt = '';
     }
     /* sendJson() { //add for fetching from public api
       const requestOptions = {
@@ -111,8 +103,7 @@ export default {
         isbn: this.isbn, 
         title: this.title, 
         author: this.author,
-        themer: this.theme,
-        publishedAt: this.publishedAt
+        theme: this.theme
       };
     } */
   } 

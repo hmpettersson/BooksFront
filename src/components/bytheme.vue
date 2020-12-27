@@ -18,10 +18,10 @@
       <a>Theme selected: {{this.theme}}</a>
       <br>
       <br>
-      <button type="submit" style = "background-color:yellow" @click = "onSubmit">Submit</button>
+      <button type="submit" style = "background-color:white" @click = "onSubmit">Submit</button>
     </div>>
     </form>
-    <div style = "color:blue">
+    <div style = "color:GoldenRod">
         <ul>
             <li v-for = "book in books" :key = "book.isbn">
             Isbn: {{book['isbn']}}
@@ -117,5 +117,18 @@
 
 </script>
 <style scoped>
- 
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #0c0c0c;
+} 
 </style>
