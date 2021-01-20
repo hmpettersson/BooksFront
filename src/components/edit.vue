@@ -8,8 +8,8 @@
         <div>
             <br>
             <div class="row justify-content-center">
-                <label>ID:&nbsp;&nbsp;</label>
-                    <input v-model="id" placeholder="Book ID required">
+                <label>BookId:&nbsp;&nbsp;</label>
+                    <input v-model="bookId" placeholder="Book ID required">
             </div>
             <br>
             <div class="row justify-content-center">
@@ -46,11 +46,11 @@
     <div>
         <p>
           This book has been edited: 
-           {{this.id}},
+           {{this.bookId}},
            {{this.isbn }},
            {{this.title}}, 
            {{this.author}}, 
-           {{this.theme}}, 
+           {{this.theme}} 
         </p>
     </div>
     <a href="http://localhost:8080/#/">Return to start page</a>
@@ -64,7 +64,7 @@ export default {
   data () {
     return {
       msg: 'Edit Book Component',
-      id: '',
+      bookId: '',
       isbn: '',
       title: '',
       author: '',
@@ -77,20 +77,20 @@ export default {
   methods: {
     onSubmit () {
       alert('Form has been submitted!');
-      // this.sendJson(); //add this for fetching from public api
-      this.id = '',
+      this.sendJson(); 
+      this.bookId = '',
       this.isbn = ''; 
       this.title = '';
       this.author = '';
       this.theme = '';
-    }
-    /* sendJson() { //add for fetching from public api
+    },
+    sendJson() { 
       const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.getInputBody())
       };
-      fetch('http://localhost:8091/book/post/'+ this.id, requestOptions)
+      fetch('rest/book/put/'+ this.bookId, requestOptions)
         .then(response => {
           if (response.status === 200) {
           return response.json();
@@ -106,13 +106,12 @@ export default {
     },
     getInputBody(){
       return {
-        id: this.id,
         isbn: this.isbn, 
         title: this.title, 
         author: this.author,
         theme: this.theme
       };
-    } */
+    } 
   } 
 }
 </script>

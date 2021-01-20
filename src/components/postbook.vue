@@ -72,19 +72,19 @@ export default {
   methods: {
     onSubmit () {
       alert('Form has been submitted!');
-      // this.sendJson(); //add this for fetching from public api
+      this.sendJson(); 
       this.isbn = ''; 
       this.title = '';
       this.author = '';
       this.theme = '';
-    }
-    /* sendJson() { //add for fetching from public api
+    },
+    sendJson() {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.getInputBody())
       };
-      fetch('http://localhost:8091/book/post', requestOptions)
+      fetch('/rest/book/post', requestOptions)
         .then(response => {
           if (response.status === 200) {
           return response.json();
@@ -105,7 +105,7 @@ export default {
         author: this.author,
         theme: this.theme
       };
-    } */
+    } 
   } 
 }
 </script>

@@ -31,16 +31,16 @@ export default {
     },
     methods: {
         onSubmit: function(){
-            //this.deletePerson() Use this for when you send a delete request to real api
+            this.deletePerson()
             alert('Book with ID ' + this.theId + ' has been deleted.')
             this.theId = ''
-        } /*,
+        },
         deletePerson: function(){
             const requestOptions = {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
             };
-            fetch('http://localhost:8091/book/delete/' + this.theId, requestOptions)
+            fetch('/rest/book/delete/' + this.theId, requestOptions)
                 .then(response => {
                     if (response.status === 200) {
                     return response.json();
@@ -53,7 +53,7 @@ export default {
                 }).catch(error => {
                 console.error(error);
                 }); 
-        }*/
+        }
     }
 }
 

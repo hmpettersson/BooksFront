@@ -24,6 +24,8 @@
     <div style = "color:GoldenRod">
         <ul>
             <li v-for = "book in books" :key = "book.isbn">
+            BookId: {{book['bookId']}}
+            <br>
             Isbn: {{book['isbn']}}
             <br>
             Title: {{book['title']}}
@@ -50,36 +52,12 @@
         title:'ByTheme',
         msg: 'Theme Component',
         theme: '',
-        books: [{isbn: '111-11',
+        books: [{bookId: '99', 
+            isbn: '111-11',
             title: 'ExampleBook',
             author: 'ExampleAuthor',
             theme: 'crime',
-            publishedAt: '2010'},
-            {isbn: '111-22',
-            title: 'ExampleBookTwo',
-            author: 'ExampleAuthorTwo',
-            theme: 'biograpy',
-            publishedAt: '2010'},
-            {isbn: '111-33',
-            title: 'ExampleBookThree',
-            author: 'ExampleAuthorThree',
-            theme: 'fiction',
-            publishedAt: '2012'}],
-        crime: [{isbn: '111-11',
-            title: 'ExampleBook',
-            author: 'ExampleAuthor',
-            theme: 'crime',
-            publishedAt: '2010'}],
-        biography: [{isbn: '111-22',
-            title: 'ExampleBookTwo',
-            author: 'ExampleAuthorTwo',
-            theme: 'biograpy',
-            publishedAt: '2010'}],
-        fiction: [{isbn: '111-33',
-            title: 'ExampleBookThree',
-            author: 'ExampleAuthorThree',
-            theme: 'fiction',
-            publishedAt: '2012'}]
+            publishedAt: '2010'}]
         }
     },
    mounted () {
@@ -88,30 +66,20 @@
     methods: {
         onSubmit: function(){
             alert("Theme has been chosen");
-            if(this.theme === 'crime'){ //Row 91 to including 99 to be deleted when fetching real api
-                this.books = this.crime;
-            }
-            if(this.theme === 'fiction'){
-                this.books = this.fiction;
-            }
-            else{
-                this.books = this.biography;
-            }
-            //this.getBooks(); use this one when fetching real api
-        }
-        /* getExample: function(){
-            var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'http://localhost:8091/book/'+ this.theme
-            fetch(proxyUrl + targetUrl)
+            this.getBooks();
+        },
+        getBooks: function(){
+            fetch('rest/book/' + this.theme)
             .then(blob => blob.json())
             .then(data => {
-                this.books = [data]; //take away [] when expecting more than one result
+                this.books = data; 
                 return data;
             })
             .catch(e => {
             console.log(e);
             return e;
-        }); */
+            }); 
+        }
     }
 }
 
