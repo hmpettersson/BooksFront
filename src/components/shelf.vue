@@ -10,6 +10,8 @@
     <div style = "color:blue">
         <ul>
             <li v-for = "book in books" :key = "book.isbn">
+            BookId: {{book['bookId']}}
+            <br>
             Isbn: {{book['isbn']}}
             <br>
             Title: {{book['title']}}
@@ -35,8 +37,7 @@
         return{
         title:'Shelf',
         msg: 'Shelf Component',
-        books: [{isbn: '111-11', title: 'firstBook', author: 'firstAuthor', theme: 'Crime', publishedAt: '2010'},
-        {isbn: '222-22', title: 'secondBook', author: 'secondAuthor', theme: 'Biography', publishedAt: '2011'}]
+        books: [{bookId: '11', isbn: '111-11', title: 'firstBook', author: 'firstAuthor', theme: 'Crime', publishedAt: '2010'}]
         }
     },
    mounted () {
@@ -45,24 +46,22 @@
     methods: {
         getBooks: function(){
             alert("Books have been fetched");
-            //this.getBooks();
-        }
-        /* getExample: function(){
-            var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-            targetUrl = 'http://localhost:8091/book'
-            fetch(proxyUrl + targetUrl)
+            this.getExample();
+        },
+        getExample: function(){
+            fetch('/rest/book')
             .then(blob => blob.json())
             .then(data => {
-                this.books = [data];
+                this.books = data;
                 return data;
             })
             .catch(e => {
             console.log(e);
             return e;
-        }); */
+            });
+        }
     }
 }
-
 </script>
 
 <style scoped>
